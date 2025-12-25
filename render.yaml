@@ -1,0 +1,68 @@
+version: 1
+services:
+  # Frontend Service
+  - type: static_site
+    name: mooddoctor-frontend
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_GEMINI_API_KEY
+        sync: false
+      - key: VITE_GEMINI_API_KEY_2
+        sync: false
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_OPENROUTER_API_KEY
+        sync: false
+      - key: VITE_BACKEND_URL
+        sync: false
+      - key: VITE_API_BASE_URL
+        sync: false
+
+  # Backend Service
+  - type: web
+    name: mooddoctor-backend
+    runtime: python
+    plan: free
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:create_app --factory --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: MONGODB_URL
+        sync: false
+      - key: MONGODB_DB_NAME
+        value: mooddoctor
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL_NAME
+        value: gemini-1.5-flash
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_SHEETS_API_KEY
+        sync: false
+      - key: GOOGLE_SHEETS_ID
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL_NAME
+        value: llama-3.1-8b-instant
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL_NAME
+        value: deepseek/deepseek-chat
+      - key: ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false

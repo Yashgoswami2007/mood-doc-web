@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>MoodDoctor - Premium Emotional Wellness AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f5f7ff',
+                100: '#ebf0fe',
+                200: '#dae3fe',
+                300: '#c0cdfd',
+                400: '#9baefc',
+                500: '#6366f1',
+                600: '#4f46e5',
+                700: '#4338ca',
+                800: '#3730a3',
+                900: '#312e81',
+                950: '#1e1b4b',
+              },
+              premium: {
+                dark: '#020617',
+                card: 'rgba(30, 41, 59, 0.7)',
+                glass: 'rgba(255, 255, 255, 0.03)',
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'shine': 'shine 2s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              shine: {
+                '0%': { backgroundPosition: '-200% center' },
+                '100%': { backgroundPosition: '200% center' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            /* Prevents rubber banding on mobile */
+            overscroll-behavior-y: none;
+        }
+        .dark body {
+            background-color: #020617;
+        }
+        /* Optimized Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+        }
+        .glass-morphism {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-morphism {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .premium-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+        }
+        .dark .premium-shadow {
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        /* Better touch targets for buttons */
+        button {
+            touch-action: manipulation;
+        }
+        /* Animation delays for staggered entry */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        @media (max-width: 640px) {
+            h1 { font-size: 1.875rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            .p-8 { padding: 1.25rem !important; }
+            .p-10 { padding: 1.5rem !important; }
+            .rounded-\[3rem\] { border-radius: 2rem !important; }
+        }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
